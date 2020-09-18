@@ -38,3 +38,8 @@ function insertNodeAt(index, newNodeAddress, list, col) {
     col[newNodeAddress].next=beforeNode.next
     beforeNode.next=newNodeAddress
 }
+
+function deleteNodeAt(index, list, col) {
+    let beforeNode = nodeAt(index-1, list, col)
+    beforeNode.next = next(beforeNode, col).next
+}
