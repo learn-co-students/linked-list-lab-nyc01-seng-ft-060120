@@ -21,3 +21,20 @@ function nodeAt(index, list, col) {
 function addressAt(index, list, col) {
     return (index> 0) ? nodeAt(index-1, list, col).next : list
 }
+
+function indexAt(theNode, col, list) {
+    let node=col[list]
+    let x=0
+    while (node.next) {
+        if (node === theNode) {return x}
+        node=next(node,col)
+        x++
+    }
+    return null
+}
+
+function insertNodeAt(index, newNodeAddress, list, col) {
+    let beforeNode = nodeAt(index-1, list, col)
+    col[newNodeAddress].next=beforeNode.next
+    beforeNode.next=newNodeAddress
+}
